@@ -2,10 +2,10 @@
 
 <h1 align="center">
 
-<img src="https://reactnative.dev/img/header_logo.svg" height="100" width="100" alt="reactnative logo" title="React Native" />
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fpulse%2Freact-secret-weapon-nextjs-13-beginners-simple-noel-chiwamba&psig=AOvVaw3jL0sCET63owSSvuttLvA-&ust=1718196750859000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODIt-vL04YDFQAAAAAdAAAAABAE" height="100" width="100" alt="react" title="React " />
 
 <br>
-Data Daddys
+Event Managment Template
 
 </h1>
 
@@ -27,8 +27,7 @@ Data Daddys
 
 ## Introduction
 
-Data Daddys
-
+Event Managment Template
 
 
 ### Languages/Technologies
