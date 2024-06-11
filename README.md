@@ -5,7 +5,7 @@
 <img src="https://reactnative.dev/img/header_logo.svg" height="100" width="100" alt="reactnative logo" title="React Native" />
 
 <br>
-Data Daddys
+Event Managment Template
 
 </h1>
 
@@ -27,8 +27,7 @@ Data Daddys
 
 ## Introduction
 
-Data Daddys
-
+Event Managment Template
 
 
 ### Languages/Technologies
