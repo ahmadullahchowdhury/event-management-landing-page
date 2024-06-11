@@ -1,0 +1,465 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /*
+    Chromium browsers don't render nested backdrop filters.
+    As a workaround, add 'before:' to the outer filter, along with 'before:backdrop-hack':
+
+      <div class="before:backdrop-blur-md before:backdrop-hack>
+        <div class="backdrop-blur-md"></div>
+      </div>
+
+    See https://stackoverflow.com/a/76207141.
+  */
+  .backdrop-hack {
+    @apply absolute inset-0 -z-10;
+  }
+}
+
+
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  scroll-behavior: smooth !important;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+:root {
+  scroll-behavior: smooth !important;
+  --foreground-rgb: #fff;
+  --background-start-rgb: #ddd;
+  --background-end-rgb: #ddd;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  margin: 0;
+  color: rgb(var(--foreground-rgb));
+
+  /* background-repeat: no-repeat; */
+  /* background-position: 0 calc(25% - 0.5px), 0 calc(50% - 0.5px), 0 calc(75% - 0.5px), 0 calc(100% - 0.5px); */
+
+  /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+}
+
+.custom-body{
+  background-color: #fff;
+  background-image:
+  linear-gradient(90deg, transparent 579px, #abced4 579px, #abced4 581px, transparent 581px),
+  linear-gradient(90deg, transparent 89px, #abced4 89px, #abced4 91px, transparent 91px),
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+}
+
+@layer base {
+  .container-custom {
+    @apply mx-auto w-full max-w-[1280px] overflow-hidden px-5 md:px-8;
+  }
+}
+
+.our-success-bg {
+  background-image: url('/image/oursuccess/image.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.slick-slide > div {
+  padding: 0 15px !important;
+}
+.slick-list {
+  padding: 0 -15px !important;
+}
+
+.slick-dots {
+  bottom: -60px !important;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 0px !important;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button:before {
+  background-color: #1c809e;
+  border-radius: 5px;
+  height: 12px !important;
+  width: 12px !important;
+  text-indent: -9999px;
+  overflow: visible;
+}
+
+.slick-center {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.custom-prev-button,
+.custom-next-button {
+  /* background-color: #fff; */
+  color: #1c809e;
+  border: none;
+  /* border-radius: 50%; */
+  /* padding: 5px 5px; */
+  cursor: pointer;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 100;
+  transition: all 0.3s;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.custom-prev-button {
+  left: -5%;
+}
+
+.custom-next-button {
+  right: -5%;
+}
+
+.custom-nav {
+  padding-right: 20px !important;
+  position: relative;
+}
+
+.custom-nav::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  /* top: 0; */
+  /* left: 16%; */
+  border-radius: 36px;
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%); */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.185) 3.5%, rgba(0, 0, 0, 0.29) 100%);
+  backdrop-filter: blur(9px);
+  z-index: -1;
+}
+
+.navbar-bg-color {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%) !important;
+  backdrop-filter: blur(9px) !important;
+}
+/* .glassmorphism {
+  position: relative;
+} */
+
+.glassmorphism {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%) !important;
+  /* border-radius: 16px; */
+  box-shadow: 0 40px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  -moz-backdrop-filter: blur(20px) !important;
+}
+
+@media (max-width: 767px) {
+  /* .mobile-custom-nav{
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%) !important;
+    background: rgba(255, 255, 255, 0.01) ;
+  }
+  .mobile-custom-nav::before{
+    backdrop-filter: blur(9px) !important;
+  }
+  .navbar-bg-color {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%) !important;
+  }
+  .custom-nav::before {
+    background: none;
+    backdrop-filter: none !important;
+  } */
+  
+  .custom-nav::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    top: 0%;
+    left: 0%;
+    border-radius: 0px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.29) 3.5%, rgba(0, 0, 0, 0.29) 100%);
+    backdrop-filter: blur(9px);
+    z-index: -1;
+  }
+
+}
+
+.partner_scroll {
+  padding: 10px;
+  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.partner_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.project-text {
+  position: relative;
+  left: 10px !important;
+  background: linear-gradient(180deg, #fff 31.5%, rgba(255, 255, 255, 0) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* .project-image {
+  position: relative;
+  left: -45px;
+} */
+
+/* navbar code */
+
+.phoneNumberInput input {
+  width: 100%;
+  outline: none;
+  color: black;
+  background-color: transparent;
+}
+
+.phoneNumberInput {
+  --PhoneInputCountrySelectArrow-color: #000000;
+}
+
+.PhoneInputCountrySelectArrow {
+  margin-left: 10px !important;
+  margin-right: 7px;
+}
+
+.phoneNumberInput input::placeholder {
+  color: white;
+}
+
+.PhoneInputCountrySelectArrow-color {
+  color: white;
+}
+
+.my-bg-image-handler {
+  max-width: 1980px;
+  margin: auto;
+  background-image: url('/icon/circle.svg');
+  background-size: 1100px 1100px;
+  background-position: 1200px -178px;
+  background-repeat: no-repeat;
+}
+
+.my-bg-image-handler_dark {
+  background-image: url('/icon/dark_round.svg');
+  max-width: 1980px;
+  margin: auto;
+  background-size: 1100px 1100px;
+  background-position: 1200px -178px;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1580px) and (max-width: 1680px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 1035px 1021px;
+    background-position: 1078px -127px;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 1580px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 1035px 1021px;
+    background-position: 1030px -127px;
+  }
+}
+
+@media (min-width: 1381px) and (max-width: 1500px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 1035px 1021px;
+    background-position: 930px -126px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1380px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 1031px 1021px;
+    background-position: 821px -126px;
+  }
+}
+
+@media (min-width: 1151px) and (max-width: 1280px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 880px 890px;
+    background-position: 825px -60px;
+  }
+}
+
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 650px 650px;
+    background-position: 781px 145px;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1050px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 650px 650px;
+    background-position: 720px 85px;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1000px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 518px 548px;
+    background-position: 738px 85px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 950px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-size: 518px 548px;
+    background-position: 680px 75px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-image: url('/icon/circle.svg');
+    background-size: 518px 548px;
+    background-position: 602px 40px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-image: url('/icon/circle.svg'), url('/image/hero/large-star.svg'), url('/image/hero/triangle.svg');
+    background-size:
+      518px 548px,
+      75px 75px,
+      150px 150px;
+    background-position:
+      500px 40px,
+      100px 448px,
+      60px 20px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 639px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-image: url('/icon/circle.svg'), url('/image/hero/large-star.svg'), url('/image/hero/triangle.svg');
+    background-size:
+      518px 548px,
+      75px 75px,
+      150px 150px;
+    background-position:
+      300px 40px,
+      100px 480px,
+      60px 30px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 500px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-image: url('/icon/circle.svg'), url('/image/hero/large-star.svg'), url('/image/hero/triangle.svg');
+    background-size:
+      518px 548px,
+      75px 75px,
+      150px 150px;
+    background-position:
+      250px 40px,
+      60px 480px,
+      20px 30px;
+    background-repeat: no-repeat;
+  }
+}
+@media (max-width: 400px) {
+  .my-bg-image-handler,
+  .my-bg-image-handler_dark {
+    background-image: url('/icon/circle.svg'), url('/image/hero/large-star.svg'), url('/image/hero/triangle.svg');
+    background-size:
+      518px 548px,
+      75px 75px,
+      150px 150px;
+    background-position:
+      188px 30px,
+      6px 480px,
+      -30px 30px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 768px) {
+  .sm-bg-effect {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(2px);
+  }
+}
+
+
+
+
+/* sliders custom button */
+
+.custom-prev-button,
+.custom-next-button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-prev-button {
+  left: -2%;
+}
+
+.custom-next-button {
+  right: -2%;
+}
+
